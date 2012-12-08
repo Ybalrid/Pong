@@ -1,16 +1,18 @@
 #include "run.h"
+#include "score.h"
 #include <stdio.h>
 void mouve(struct Ball* ball)
 {
-//    printf("mouve !\n");
+    int speed = 10;
+    
     if (ball->sens == GAUCHE)
     {
-        ball->coord.x -= 5;
+        ball->coord.x -= speed;
         ball->coord.y += ball->varY;
     }
     else
     {
-        ball->coord.x += 5;
+        ball->coord.x += speed;
         ball->coord.y += ball->varY;
     }
 }
@@ -28,6 +30,7 @@ void runAStep(struct Ball* ball, int posYJ1, int posYJ2, struct Score* score)
         else 
         {
             score->J2++;
+            displayScore(*score);
             initBall(ball);
         }
     }
@@ -42,6 +45,7 @@ void runAStep(struct Ball* ball, int posYJ1, int posYJ2, struct Score* score)
         else
         {
             score->J1++;
+            displayScore(*score);
             initBall(ball);
         }
     }
@@ -51,6 +55,4 @@ void runAStep(struct Ball* ball, int posYJ1, int posYJ2, struct Score* score)
             ball->varY =  - ball->varY;
         mouve(ball);
     }
-
-
 }

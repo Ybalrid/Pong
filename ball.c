@@ -13,7 +13,7 @@ int colideRWall(struct Ball ball)//return numeroJoueur si colision avec les murs
 {
     if (ball.coord.x <= 20)
         return 1;
-    if (ball.coord.x >= 800 - 20)
+    if (ball.coord.x >= 800 - 30)
         return 2;
     return 0;
 }
@@ -22,7 +22,7 @@ int colideRaquette(int posY, struct Ball ball)//si colision avec la raquette
 {
     if (colideRWall > 0)
     {
-        if (ball.coord.y >= posY && ball.coord.y <= posY + 40)
+        if (ball.coord.y >= posY -10 && ball.coord.y <= posY + 30)
             return 1;
     }
     return 0;
