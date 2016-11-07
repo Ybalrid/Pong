@@ -11,6 +11,6 @@ endif
 ifeq ($(UNAME), Linux)
 all:
 	@echo "Found Linux System"
-	gcc -o $(PROGRAM) -I/usr/include/SDL -lSDL *.c 
+	gcc -o $(PROGRAM) -I/usr/include/SDL *.c -lSDL
 endif
 
